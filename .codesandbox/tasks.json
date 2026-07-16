@@ -1,0 +1,29 @@
+{
+  "$schema": "https://codesandbox.io/schemas/tasks.json",
+  "setupTasks": [
+    {
+      "name": "Install dependencies",
+      "command": "npm install"
+    }
+  ],
+  "tasks": {
+    "dev": {
+      "name": "dev (bug does NOT reproduce here)",
+      "command": "npm run dev",
+      "runAtStart": false
+    },
+    "build": {
+      "name": "Build",
+      "command": "npm run build",
+      "runAtStart": false
+    },
+    "preview": {
+      "name": "Build + preview (reproduces the bug)",
+      "command": "npm run build && npm run preview -- --host",
+      "runAtStart": true,
+      "preview": {
+        "port": 4173
+      }
+    }
+  }
+}
