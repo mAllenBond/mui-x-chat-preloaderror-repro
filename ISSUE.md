@@ -48,15 +48,23 @@ Two problems:
 
 ### Reproduction
 
-Minimal repro (`<ChatBox>` + `createEchoAdapter`, ~40 lines): <LINK>
+Minimal repro (`<ChatBox>` + `createEchoAdapter`, ~40 lines):
+https://github.com/mAllenBond/mui-x-chat-preloaderror-repro
 
 ```bash
+git clone https://github.com/mAllenBond/mui-x-chat-preloaderror-repro
+cd mui-x-chat-preloaderror-repro
 npm install
 npm run build
 npm run preview   # http://localhost:4173
 ```
 
 Send any message. The on-page log turns red with the `vite:preloadError`. (The repro calls `event.preventDefault()` only so the page is observable instead of reload-looping.) With `npm run dev`, the event never fires — `__vitePreload` only exists in build output.
+
+> **Note on hosted sandboxes:** this bug only manifests in a *built* `vite preview`, not
+> a dev server. StackBlitz can reproduce it because its `.stackblitzrc` runs
+> `npm run build && npm run preview`. A default CodeSandbox/StackBlitz dev server shows
+> nothing.
 
 ### Environment
 
