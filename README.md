@@ -1,5 +1,10 @@
 # `@mui/x-chat`: rendering an assistant markdown reply dispatches `vite:preloadError` in a production build
 
+**Live demo:** https://mallenbond.github.io/mui-x-chat-preloaderror-repro/ — send any
+message and the on-page log turns red. (The demo logs the event and calls
+`event.preventDefault()` instead of reloading, so the bug is observable rather than an
+infinite reload loop — see [Reproduce](#reproduce).)
+
 ## Summary
 
 In a **production build** (`vite build`), sending a message in `<ChatBox>` dispatches a
